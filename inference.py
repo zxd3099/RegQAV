@@ -1,9 +1,4 @@
 # encoding: utf-8
-"""
-@File   : inference.py
-@Time   : 2025/1/11 9:51
-@Author : zxd3099
-"""
 import torch
 import argparse
 import os.path
@@ -195,3 +190,4 @@ if __name__ == "__main__":
     )
 
     trainer.predict(model, dm.test_dataloader())
+
