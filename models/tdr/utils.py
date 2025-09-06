@@ -1,10 +1,4 @@
 # encoding: utf-8
-"""
-@version: 1.0
-@author: zxd3099
-@file: utils
-@time: 2024-12-27 10:20
-"""
 import math
 import torch
 import torch.nn.functional as F
@@ -450,3 +444,4 @@ def sigmoid_focal_loss(inputs, targets, mask, num_boxes, alpha: float = 0.25, ga
 #
 #
 # test()
+
