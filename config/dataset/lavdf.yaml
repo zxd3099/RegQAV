@@ -1,0 +1,7 @@
+Dataset: "LAVDF"
+data_root: "Datasets/LAV-DF"
+temporal_size: 100
+max_duration: 40
+fps: 25
+sampling_rate: 16_000
+normalized: False

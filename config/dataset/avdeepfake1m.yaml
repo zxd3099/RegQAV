@@ -1,0 +1,7 @@
+Dataset: "AVDeepfake1M"
+data_root: "Datasets/AV-Deepfake1M"
+temporal_size: 100
+max_duration: 30
+fps: 25
+sampling_rate: 16_000
+normalized: False
