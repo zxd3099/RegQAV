@@ -1,0 +1,82 @@
+# deformable decoder
+hidden_dim: 256
+n_heads: 8
+n_deform_heads: 8
+base_scale: 0.002
+num_queries: 40
+stacking_queries: 100
+enc_layers: 1
+dec_layers: 4
+dim_feedforward: 1024
+dropout: 0.0
+droppath: 0.0
+transformer_activation: "gelu"
+return_intermediate_dec: True
+max_queries: 3000
+fix_encoder_proposals: True
+num_feature_levels: 3
+num_sampling_levels: 3
+num_register_tokens: 4
+enc_n_points: 4
+dec_n_points: 4
+temperature: 1000
+
+# model
+v_backbone_frozen: True
+a_backbone_frozen: True
+model_frozen: True
+feature_dim: 512
+num_cls_head_layers: 3
+num_reg_head_layers: 3
+fusion_mode: "concat"
+tdl_count_loss: True
+tdl_mod_loss: True
+aux_loss: True
+query_gen: True
+with_regs: True
+share_class_embed: False
+share_segment_embed: False
+
+# matcher
+set_cost_class: 4
+set_cost_seg: 2
+set_cost_iou: 2
+diou: True
+
+# Stacking
+classifer_layers: 3
+segment_layers: 3
+stacker_count_loss: True
+stacker_mod_loss: True
+
+# criterion
+num_classes: 3
+binary: False
+label_smoothing: 0.1
+mod_loss_coef: 10
+pois_loss_coef: 5
+cls_loss_coef: 20
+seg_loss_coef: 100
+iou_loss_coef: 10
+focal_alpha: 0.25
+pois_alpha: 0.5
+
+# backbone
+backbone_ckpt_path: "ckpt/backbone/Raven.ckpt"
+tdr_ckpt_path: "ckpt/tdr/raven-tdl-stacker.ckpt"
+
+# training
+gpus: 8
+distribute: True
+max_epochs: 50
+batch_size: 12
+num_workers: 8
+patience: 5
+warmup_epochs: 5
+gradient_clip_val: 1.0
+log_every_n_steps: 10
+learning_rate: 0.0002
+swa_learning_rate: 0.00004
+accumulate_grad_batches: 8
+ckpt_dir: "stage3"
+ckpt_name: "RegQAV"
