@@ -1,4 +1,9 @@
 # encoding: utf-8
+"""
+@File   : inference.py
+@Time   : 2025/1/11 9:51
+@Author : zxd3099
+"""
 import torch
 import argparse
 import os.path
@@ -150,35 +155,35 @@ if __name__ == "__main__":
     model.eval()
 
     # AV-Deepfake1M
-    dm = AVDeepfake1mDataModule(
-        root=dataset_args.data_root,
-        temporal_size=dataset_args.temporal_size,
-        max_duration=dataset_args.max_duration,
-        fps=dataset_args.fps,
-        batch_size=model_args.batch_size,
-        num_workers=model_args.num_workers,
-        sampling_rate=dataset_args.sampling_rate,
-        normalized=dataset_args.normalized,
-        take_train=args.num_train,
-        take_val=args.num_val,
-        take_test=args.num_test,
-        with_regs=model_args.with_regs
-    )
-    dm.setup()
+    #dm = AVDeepfake1mDataModule(
+    #    root=dataset_args.data_root,
+    #    temporal_size=dataset_args.temporal_size,
+    #    max_duration=dataset_args.max_duration,
+    #    fps=dataset_args.fps,
+    #    batch_size=model_args.batch_size,
+    #    num_workers=model_args.num_workers,
+    #    sampling_rate=dataset_args.sampling_rate,
+    #    normalized=dataset_args.normalized,
+    #    take_train=args.num_train,
+    #    take_val=args.num_val,
+    #    take_test=args.num_test,
+    #    with_regs=model_args.with_regs
+    #)
+    #dm.setup()
 
     # LAVDF
-    # dm = LAVDFDataModule(
-    #     root=dataset_args.data_root,
-    #     temporal_size=dataset_args.temporal_size,
-    #     max_duration=dataset_args.max_duration,
-    #     fps=dataset_args.fps,
-    #     batch_size=model_args.batch_size,
-    #     num_workers=model_args.num_workers,
-    #     sampling_rate=dataset_args.sampling_rate,
-    #     normalized=dataset_args.normalized,
-    #     with_regs=model_args.with_regs
-    # )
-    # dm.setup()
+    dm = LAVDFDataModule(
+         root=dataset_args.data_root,
+         temporal_size=dataset_args.temporal_size,
+         max_duration=dataset_args.max_duration,
+         fps=dataset_args.fps,
+         batch_size=model_args.batch_size,
+         num_workers=model_args.num_workers,
+         sampling_rate=dataset_args.sampling_rate,
+         normalized=dataset_args.normalized,
+         with_regs=model_args.with_regs
+     )
+    dm.setup()
 
     gpus = 4
 
@@ -190,4 +195,3 @@ if __name__ == "__main__":
     )
 
     trainer.predict(model, dm.test_dataloader())
-
