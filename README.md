@@ -18,12 +18,12 @@ pip install -r requirements.txt
 
 ### Step 2: Download the Dataset
 Download one of the supported datasets to your local machine:
-* **LAV-DF**
-* **AV-Deepfake1M**
+* [**LAV-DF**](https://drive.google.com/drive/folders/1U8asIMb0bpH6-zMR_5FaJmPnC53lomq7)
+* [**AV-Deepfake1M**](https://github.com/controlnet/av-deepfake1m)
 
 ### Step 3: Download Pretrained Checkpoints
 Download the pretrained weights/checkpoints from Google Drive to your local machine:
-* [Google Drive Download Link](YOUR_GOOGLE_DRIVE_URL_HERE)
+* [Google Drive Download Link](https://drive.google.com/drive/folders/1OBvLOsvL69SKPUUSB3ZRW2IX209RlS6P?usp=sharing)
 
 After downloading, place the checkpoint file into your project directory (e.g., `Reg-QAV/checkpoints/`).
 
